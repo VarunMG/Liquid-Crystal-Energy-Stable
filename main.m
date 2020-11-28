@@ -11,8 +11,8 @@ Tend = 1; %end time
 bd = 'D'; %boundary condition 'D' for Dirichlet, 'N' for Neumann
 n = 50; %number of spatial grid points in each direction
 m = 100; %number of time steps
-[xVals,yVals,tVals,Q1,Q2,q,dt] = new_scheme3(Lx,n, a,b,c,A0,M,L,Tend,m,bd); %solver based on scheme
-[newDirector1x, newDirector1y,F] = visualize(Q1,Q2,n,m,xVals,yVals,q,dt); %visualizer animates director field
+[xVals,yVals,tVals,Q1,Q2,q] = new_scheme3(Lx,n, a,b,c,A0,M,L,Tend,m,bd); %solver based on scheme
+[newDirector1x, newDirector1y,F] = visualize(Q1,Q2,n,m,xVals,yVals,q,tVals); %visualizer animates director field
 E = energy(Q1,Q2,q,n,m,Lx,L,A0); %calculates energy 
 %%energy plotting
 figure;

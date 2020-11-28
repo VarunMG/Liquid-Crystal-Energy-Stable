@@ -1,4 +1,4 @@
-function [newDirector1x, newDirector1y,F] = visualize(Q1,Q2,n,m,xVals,yVals,q,dt)
+function [newDirector1x, newDirector1y,F] = visualize(Q1,Q2,n,m,xVals,yVals,q,tVals)
 %visualizes the result
 director1x = zeros(n,n,m);
 director1y = zeros(n,n,m);
@@ -66,7 +66,8 @@ for i=1:m
 end
 close(v);
 %%plotting at specific time intervals
-important = [1,floor(m/6),  floor(2*m/6), floor(3*m/6), floor(4*m/6), floor(5*m/6), m];
+dt = tVals(2)-tVals(1);
+important = [1,floor(m/5),  floor(2*m/5), floor(3*m/5), floor(4*m/5),m];
 figure;
 for i = 1:6
     subplot(2,3,i);
@@ -74,6 +75,6 @@ for i = 1:6
     newDirector2x = [zeros(1,n+2); zeros(n,1), director2x(:,:,re), zeros(n,1); zeros(1,n+2)];
     newDirector2y = [zeros(1,n+2); zeros(n,1), director2y(:,:,re), zeros(n,1); zeros(1,n+2)];
     quiver(X,Y,newDirector2x,newDirector2y);
-    time = (important(i)-1)*dt;
+    time = tVals(important(i));
     title(num2str(time,'t=%.4f'));
 end

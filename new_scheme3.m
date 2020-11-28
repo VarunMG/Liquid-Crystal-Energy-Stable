@@ -1,4 +1,4 @@
-function [xVals,yVals,tVals,Q1,Q2,q,dt] = new_scheme3(Lx,n, a,b,c,A0,M,L,Tend,m,bd)
+function [xVals,yVals,tVals,Q1,Q2,q] = new_scheme3(Lx,n, a,b,c,A0,M,L,Tend,m,bd)
 %Lx size of the square so domain is [0,Lx] x [0,Lx]
 %number of spatial steps per dimension (so grid size is n^2)
 %a,b,c,A0 - for the P(Q) function
